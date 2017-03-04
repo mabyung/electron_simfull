@@ -21,9 +21,9 @@ a:hover{text-decoration:none;}
 #wrap {width:100%;height:100%;}
 #contents {position:relative;height:100%;}
 #contents:after {content:"";display:block;clear:both;}
-.sideMenu {position:fixed;top:0;left:0;width:200px;height:100%;background:#eee;}
-.sideMenu > button {display:block;}
-.sideMenu .btnLink.on {background:#ccc;}
+.sideMenu {position:fixed;top:0;left:0;width:200px;height:100%;background:#eee; }
+.sideMenu > button, .sideMenu .btnLink {display:block; width: 100%; cursor: pointer; padding: 5px; border : 1px solid #999; }
+.sideMenu .btnLink.on {    background: #333; color: #fff; }
 .webViewWrap {height:100%;margin-left:210px;}
 .webViewWrap webview {height:100%;}
 .scrapingWrap {display:none;}
@@ -32,6 +32,7 @@ a:hover{text-decoration:none;}
 .youtubeMenu {margin:0 0 20px 10px;}
 .setContents p,
 .youtubeMenu p {margin:20px 0 5px;}
+.setContents .imageTit, .setContents .addText{ height : 50px; }
 
 .youtubeMenu {display:none;}
 .youtubeMenu .timeWrap {}

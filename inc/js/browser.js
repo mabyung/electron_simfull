@@ -1,8 +1,9 @@
 window.onresize = doLayout;
 var isLoading = false;
+let webview = null;
 
 onload = function() {
-  var webview = document.querySelector('webview');
+  webview = document.querySelector('webview');
   doLayout();
 
   document.querySelector('#back').onclick = function() {
@@ -69,17 +70,17 @@ onload = function() {
         zoomFactor = 0.25;
       }
       webview.setZoom(zoomFactor);
-    }
+    };
 
     document.querySelector('#zoom-in').onclick = function(e) {
       e.preventDefault();
       increaseZoom();
-    }
+    };
 
     document.querySelector('#zoom-out').onclick = function(e) {
       e.preventDefault();
       decreaseZoom();
-    }
+    };
 
     document.querySelector('#find').onclick = function() {
       if(document.querySelector('#find-box').style.display == 'block') {
@@ -93,7 +94,7 @@ onload = function() {
     document.querySelector('#find-text').oninput = function(e) {
       webview.find(document.forms['find-form']['find-text'].value,
                    {matchCase: findMatchCase});
-    }
+    };
 
     document.querySelector('#find-text').onkeydown = function(e) {
       if (event.ctrlKey && event.keyCode == 13) {
@@ -101,7 +102,7 @@ onload = function() {
         webview.stopFinding('activate');
         closeFindBox();
       }
-    }
+    };
 
     document.querySelector('#match-case').onclick = function(e) {
       e.preventDefault();
@@ -116,19 +117,19 @@ onload = function() {
       }
       webview.find(document.forms['find-form']['find-text'].value,
                    {matchCase: findMatchCase});
-    }
+    };
 
     document.querySelector('#find-backward').onclick = function(e) {
       e.preventDefault();
       webview.find(document.forms['find-form']['find-text'].value,
                    {backward: true, matchCase: findMatchCase});
-    }
+    };
 
     document.querySelector('#find-form').onsubmit = function(e) {
       e.preventDefault();
       webview.find(document.forms['find-form']['find-text'].value,
                    {matchCase: findMatchCase});
-    }
+    };
 
     webview.addEventListener('findupdate', handleFindUpdate);
     window.addEventListener('keydown', handleKeyDown);
@@ -273,6 +274,7 @@ function handleLoadAbort(event) {
 function handleLoadRedirect(event) {
   resetExitedState();
   document.querySelector('#location').value = event.newUrl;
+  document.querySelector(".imageTit").value = webview.getTitle().split(">")[0].split(":")[0].trim();
 }
 
 function getNextPresetZoom(zoomFactor) {
