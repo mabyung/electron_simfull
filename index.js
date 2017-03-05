@@ -6,6 +6,7 @@ const glob = require("glob");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const electronLocalshortcut = require('electron-localshortcut');
+
 require('electron-debug')({showDevTools: true});
 let mainWindow;
 loadMainProcess();
@@ -20,6 +21,13 @@ function createWindow () {
         protocol: 'file:',
         slashes: true
     }));
+
+    const getCanvas = (width, height) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        return canvas;
+    };
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
@@ -64,14 +72,9 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-    if (mainWindow === null) {
-        createWindow()
-    }
+    imainWindow === nul && createWindow()
 });
 
 function loadMainProcess () {
-    var files = glob.sync(path.join(__dirname, "mainProcess/*.js"));
-    files.forEach(function (file) {
-        require(file);
-    });
+    files.forEach( file => require( glob.sync(path.join(__dirname, "mainProcess/*.js")) ) );
 }
