@@ -76,5 +76,6 @@ app.on('activate', () => {
 });
 
 function loadMainProcess () {
-    files.forEach( file => require( glob.sync(path.join(__dirname, "mainProcess/*.js")) ) );
+    var files = glob.sync(path.join(__dirname, "mainProcess/*.js"));
+    files.forEach( file => require(file));
 }
