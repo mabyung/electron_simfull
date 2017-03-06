@@ -6,6 +6,7 @@ const glob = require("glob");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const electronLocalshortcut = require('electron-localshortcut');
+const tumblrManager = require("./mainProcess/manager/TumblrManager");
 
 require('electron-debug')({showDevTools: true});
 let mainWindow;
@@ -19,21 +20,22 @@ function createWindow () {
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'index.html'),
         protocol: 'file:',
-        slashes: true
+        slashes: true,
+        contextIsolation : true
     }));
 
-    const getCanvas = (width, height) => {
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        return canvas;
-    };
+
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+    // mainWindow.webContents.openDevTools();
     mainWindow.on('closed', () => {
         mainWindow = null
     });
+
+    setTimeout( function(){
+        "use strict";
+        tumblrManager.run();
+    }, 3000 );
 
     electronLocalshortcut.register(mainWindow, 'Ctrl+1', () => {
         mainWindow.webContents.executeJavaScript( `
