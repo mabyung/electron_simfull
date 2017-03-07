@@ -32,11 +32,6 @@ function createWindow () {
         mainWindow = null
     });
 
-    setTimeout( function(){
-        "use strict";
-        tumblrManager.run();
-    }, 3000 );
-
     electronLocalshortcut.register(mainWindow, 'Ctrl+1', () => {
         mainWindow.webContents.executeJavaScript( `
         UI.ins.$postbtn.eq(0).trigger("click");
