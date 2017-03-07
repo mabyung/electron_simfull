@@ -13,3 +13,5 @@ https://ffmpeg.zeranoe.com/builds/
 
 5. 상단 상용자 변수에서 새로만들기 클릭 후 변수이름 및 경로 설정
 ex) 변수이름 - path, 변수값 - i:\ffmpeg\bin 설정 완료 후 재부팅
+
+test
