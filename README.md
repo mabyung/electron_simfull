@@ -1,15 +1,15 @@
 # electron_simfull
 electron_simfull
 
-#ffmpeg ¼³Ä¡ ¹× ¼³Á¤ ¹æ¹ý
-1. ¾Æ·¡ ¸µÅ©¿¡¼­ Download FFmpeg Å¬¸¯ÇÏ¿© ´Ù¿î·Îµå
+#ffmpeg ì„¤ì¹˜ ë° ì„¤ì • ë°©ë²•
+1. ì•„ëž˜ ë§í¬ì—ì„œ Download FFmpeg í´ë¦­í•˜ì—¬ ë‹¤ìš´ë¡œë“œ
 https://ffmpeg.zeranoe.com/builds/
 
-2. ½ÃÀÛ¸Þ´ºÀÇ ÄÄÇ»ÅÍ ¿ìÅ¬¸¯ ÈÄ ¼Ó¼º ¼±ÅÃ
+2. ì‹œìž‘ë©”ë‰´ì˜ ì»´í“¨í„° ìš°í´ë¦­ í›„ ì†ì„± ì„ íƒ
 
-3. ÁÂÃø Á¦¾îÆÇ È¨ ¸Þ´ºÀÇ °í±Þ ½Ã½ºÅÛ ¼³Á¤ Å¬¸¯
+3. ì¢Œì¸¡ ì œì–´íŒ í™ˆ ë©”ë‰´ì˜ ê³ ê¸‰ ì‹œìŠ¤í…œ ì„¤ì • í´ë¦­
 
-4. ½Ã½ºÅÛ ¼Ó¼º ÆË¾÷¿¡¼­ È¯°æº¯¼ö Å¬¸¯
+4. ì‹œìŠ¤í…œ ì†ì„± íŒì—…ì—ì„œ í™˜ê²½ë³€ìˆ˜ í´ë¦­
 
-5. »ó´Ü »ó¿ëÀÚ º¯¼ö¿¡¼­ »õ·Î¸¸µé±â Å¬¸¯ ÈÄ º¯¼öÀÌ¸§ ¹× °æ·Î ¼³Á¤
-ex) º¯¼öÀÌ¸§ - path, º¯¼ö°ª - i:\ffmpeg\bin ¼³Á¤ ¿Ï·á ÈÄ ÀçºÎÆÃ
+5. ìƒë‹¨ ìƒìš©ìž ë³€ìˆ˜ì—ì„œ ìƒˆë¡œë§Œë“¤ê¸° í´ë¦­ í›„ ë³€ìˆ˜ì´ë¦„ ë° ê²½ë¡œ ì„¤ì •
+ex) ë³€ìˆ˜ì´ë¦„ - path, ë³€ìˆ˜ê°’ - i:\ffmpeg\bin ì„¤ì • ì™„ë£Œ í›„ ìž¬ë¶€íŒ…
