@@ -16,8 +16,6 @@ class TumblrManager
             const first = yield post.execute( function( _src ) {
                     document.querySelector(".media-url-button").click();
                     ( ()=> {
-                        if( document.queryCommandSupported && document.queryCommandSupported("copy") )
-                        {
                             const textarea = document.createElement("textarea");
                             textarea.textContent = _src;
                             textarea.style.position = "fixed";
@@ -25,7 +23,6 @@ class TumblrManager
                             textarea.select();
                             document.execCommand("copy");
                             document.body.removeChild(textarea);
-                        }
                     })();
                     document.querySelector(".media-dropzone-cropper .editor-plaintext").click();
                     setTimeout( ()=> document.execCommand('Paste') , 1000 );
