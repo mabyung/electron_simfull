@@ -5,14 +5,14 @@ const { Browser, run, sleep } = require('automatonic');
 
 class TumblrManager
 {
-    run()
+    run( _src )
     {
         run(function*() {
             console.log( "TumblrManager : start" );
             const post = new Browser({show : true, width : 1600, height : 720 });
             post.goto("https://www.tumblr.com/new/video", { contextIsolation : true });
             yield sleep(4000);
-            const src = "https://www.youtube.com/watch?v=GeGypUVvZ5c";
+            const src = _src;
             const first = yield post.execute( function( _src ) {
                     document.querySelector(".media-url-button").click();
                     ( ()=> {
@@ -28,8 +28,8 @@ class TumblrManager
                     setTimeout( ()=> document.execCommand('Paste') , 1000 );
                     return document.querySelector(".media-url-button").innerHTML;
             }, [src] );
-            console.dir( "first : ", ~first );
-            // post.close();
+            yield  sleep( 2000 );
+            post.close();
         }).then((r)=> console.log( "TumblrManager completed" ), err => console.error('OH NOES!', err) );
     }
 }

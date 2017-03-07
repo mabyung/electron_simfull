@@ -39,7 +39,7 @@ function createWindow () {
 
     electronLocalshortcut.register(mainWindow, 'Ctrl+1', () => {
         mainWindow.webContents.executeJavaScript( `
-            UI.ins.$postbtn.eq(0).trigger("click");
+        UI.ins.$postbtn.eq(0).trigger("click");
         `)
     });
 
