@@ -56,6 +56,12 @@ function createWindow () {
         `)
     });
 
+    electronLocalshortcut.register(mainWindow, 'Ctrl+5', () => {
+        mainWindow.webContents.executeJavaScript( `
+            UI.ins.$postbtn.eq(4).trigger("click");
+        `)
+    });
+
 
 }
 
