@@ -1,6 +1,7 @@
 window.onresize = doLayout;
 var isLoading = false;
 let webview = null;
+let loadedTimer = null;
 
 onload = function() {
   webview = document.querySelector('webview');
@@ -274,7 +275,13 @@ function handleLoadAbort(event) {
 function handleLoadRedirect(event) {
   resetExitedState();
   document.querySelector('#location').value = event.newUrl;
-  document.querySelector(".imageTit").value = webview.getTitle().split(">")[0].split(":")[0].trim();
+  console.log( "handleLoadRedirect init");
+  clearTimeout( loadedTimer );
+  loadedTimer = setTimeout( ()=>{
+      document.querySelector(".imageTit").value = webview.getTitle().split(">")[0].split(":")[0].trim();
+      console.log( "handleLoadRedirect before : ", webview.getTitle() );
+  }, 2000 )
+
 }
 
 function getNextPresetZoom(zoomFactor) {

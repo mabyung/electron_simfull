@@ -6,7 +6,7 @@ const glob = require("glob");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const electronLocalshortcut = require('electron-localshortcut');
-const tumblrManager = require("./mainProcess/manager/TumblrManager");
+
 
 require('electron-debug')({showDevTools: true});
 let mainWindow;

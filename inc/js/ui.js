@@ -6,7 +6,8 @@ var SITE = [
     { name : "이슈인", url : "http://www.issuein.com/" },
     { name : "오늘의유머", url : "http://www.todayhumor.co.kr/" },
     { name : "디젤매니아", url : "http://cafe.naver.com/dieselmania/" },
-    { name : "유투브", url : "http://youtube.com"}
+    { name : "유투브", url : "http://youtube.com"},
+    { name : "텀블러인증", url : "https://www.tumblr.com/oauth/apps" }
 ];
 
 const singleton = "slngleton";
