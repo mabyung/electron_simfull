@@ -19,6 +19,7 @@
     "image-type": "^3.0.0",
     "imaginary": "^0.1.12",
     "nightmare": "^2.9.1",
+    "tumblrwks": "^0.3.0",
     "vo": "^4.0.2",
     "youtube.com": "^1.1.0"
   },
