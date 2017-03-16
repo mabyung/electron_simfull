@@ -170,8 +170,6 @@ class UI extends Singleton{
         this.$startSecond = this.$youtubeMenu.find(".startTime .second");
         this.$endMinute = this.$youtubeMenu.find(".endTime .minute");
         this.$endSecond = this.$youtubeMenu.find(".endTime .second");
-
-        this.$log =  this.$body.find(".log");
     }
 
     addEvents()
@@ -222,18 +220,9 @@ class UI extends Singleton{
         this.$endMinute.val("");
         this.$endSecond.val("");
     }
-
-    setLog()
-    {
-        ipcRenderer.on('upload-post', (e, arg) => {
-            console.log(e, arg);
-        });
-    }
 }
 
 $(function(){
     UI.ins.startup();
-
-    UI.ins.setLog();
 });
 
