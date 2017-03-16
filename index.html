@@ -60,10 +60,21 @@
                 </div>-->
                 <!-- //btnWrap -->
 
-                <button type="button" class="item humor">유머 (CTRL+1) </button>
-                <button type="button" class="item girls">걸그룹 (CTRL+2) </button>
-                <button type="button" class="item adult">으랏챠챠 (CTRL+3) </button>
-                <button type="button" class="item animal">동물 (CTRL+4) </button>
+                <button type="button" class="item humor">유머 (CTRL+1)</button>
+                <button type="button" class="item girls">걸그룹 (CTRL+2)</button>
+                <button type="button" class="item adult">으랏챠챠 (CTRL+3)</button>
+                <button type="button" class="item animal">동물 (CTRL+4)</button>
+                <button type="button" class="item tumblr">텀블러 (CTRL+5)</button>
+
+                <!-- Log Wrap -->
+                <div class="logWrap">
+                    <p class="tit">Log</p>
+                    <div class="log">
+
+                    </div>
+                </div>
+                <!-- //Log Wrap -->
+
             </nav>
 
             <div class="webViewWrap">
@@ -101,17 +112,14 @@
                         <button id="find-forward">&#62;</button>
                     </form>
                 </div>
-
-                <webview id="view" src="http://nsbu.co.kr/" nodeintegration="on" plugins="on" disablewebsecurity="on" webpreferences="allowRunningInsecureContent" ></webview>
+                <webview id="view" src="http://nsbu.co.kr/"></webview>
+                <!-- nodeintegration="on" plugins="on" disablewebsecurity="on" webpreferences="allowRunningInsecureContent"  -->
             </div>
     </div>
 </div>
 <div class="scrapingWrap"></div>
 <div class="dim"></div>
-
-<script type="text/javascript">
-    require("./inc/js/browser.js");
-</script>
+<script src="./inc/js/browser.js"></script>
 <script src="./inc/js/ui.js"></script>
 </body>
 </html>

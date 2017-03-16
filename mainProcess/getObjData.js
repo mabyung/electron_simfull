@@ -4,6 +4,7 @@ let ipc = electron.ipcMain;
 let downloadManager = require("./manager/SFDownloadManager");
 let uploadManager = require("./manager/SFUploadManager");
 let ytHelper = require("./manager/SFImageHelper").ytHelper;
+let tumblrManager = require("./manager/TumblrManager");
 
 
 let handleDownloadComplete = ( _title, _category, _results ) =>{

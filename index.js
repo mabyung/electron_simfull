@@ -6,7 +6,7 @@ const glob = require("glob");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const electronLocalshortcut = require('electron-localshortcut');
-const tumblrManager = require("./mainProcess/manager/TumblrManager");
+
 
 require('electron-debug')({showDevTools: true});
 let mainWindow;
@@ -32,11 +32,6 @@ function createWindow () {
         mainWindow = null
     });
 
-    setTimeout( function(){
-        "use strict";
-        tumblrManager.run();
-    }, 3000 );
-
     electronLocalshortcut.register(mainWindow, 'Ctrl+1', () => {
         mainWindow.webContents.executeJavaScript( `
         UI.ins.$postbtn.eq(0).trigger("click");
@@ -58,6 +53,12 @@ function createWindow () {
     electronLocalshortcut.register(mainWindow, 'Ctrl+4', () => {
         mainWindow.webContents.executeJavaScript( `
             UI.ins.$postbtn.eq(3).trigger("click");
+        `)
+    });
+
+    electronLocalshortcut.register(mainWindow, 'Ctrl+5', () => {
+        mainWindow.webContents.executeJavaScript( `
+            UI.ins.$postbtn.eq(4).trigger("click");
         `)
     });
 

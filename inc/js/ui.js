@@ -6,7 +6,8 @@ var SITE = [
     { name : "이슈인", url : "http://www.issuein.com/" },
     { name : "오늘의유머", url : "http://www.todayhumor.co.kr/" },
     { name : "디젤매니아", url : "http://cafe.naver.com/dieselmania/" },
-    { name : "유투브", url : "http://youtube.com"}
+    { name : "유투브", url : "http://youtube.com"},
+    { name : "텀블러인증", url : "https://www.tumblr.com/oauth/apps" }
 ];
 
 const singleton = "slngleton";
@@ -169,6 +170,8 @@ class UI extends Singleton{
         this.$startSecond = this.$youtubeMenu.find(".startTime .second");
         this.$endMinute = this.$youtubeMenu.find(".endTime .minute");
         this.$endSecond = this.$youtubeMenu.find(".endTime .second");
+
+        this.$log =  this.$body.find(".log");
     }
 
     addEvents()
@@ -219,10 +222,18 @@ class UI extends Singleton{
         this.$endMinute.val("");
         this.$endSecond.val("");
     }
+
+    setLog()
+    {
+        ipcRenderer.on('upload-post', (e, arg) => {
+            console.log(e, arg);
+        });
+    }
 }
 
 $(function(){
     UI.ins.startup();
-});
 
+    UI.ins.setLog();
+});
 
