@@ -53,20 +53,20 @@ class SFScrapper {
         {
             case  /nsbu/g.test(matchURL) :
                 result = `document.getElementById("as-view").innerHTML`;
-                break;
+            break;
             case  /issuein/g.test(matchURL) :
                 result = `document.getElementsByClassName("rd_nav_style2")[0].innerHTML`;
-                break;
+            break;
             case  /todayhumor/g.test(matchURL) :
                 result= `document.getElementById("containerInner").innerHTML`;
-                break;
+            break;
             case  /naver/g.test(matchURL) :
                 result = `[ document.getElementById("cafe_main").contentWindow.document.querySelector(".b.m-tcol-c").innerHTML,
                                 document.getElementById("cafe_main").contentWindow.document.getElementById('tbody').innerHTML ]`;
-                break;
+            break;
             case  /youtube/g.test(matchURL) :
                 result = `document.getElementById("watch-headline-title").innerHTML`;
-                break;
+            break;
         }
         return result;
     }
@@ -98,16 +98,16 @@ class SFScrapper {
         {
             case  /nsbu/g.test(_url) :
                 dataObj = { tit : "#bo_v_title", img : ".aimg" }
-                break;
+            break;
             case  /issuein/g.test(_url) :
                 dataObj = { tit : ".top_area h1 a", img : ".xe_content img" }
-                break;
+            break;
             case  /todayhumor/g.test(_url) :
                 dataObj = { tit : ".viewSubjectDiv", img : ".viewContent img" }
-                break;
+            break;
             case  /naver/g.test(_url) :
                 dataObj = { tit : _title, img : "img" }
-                break;
+            break;
             case  /youtube/g.test(_url) :
                 let tit = UI.ins.$imageTit.val();
                 let startDuration = UI.ins.$startMinute.val()+":"+UI.ins.$startSecond.val();
@@ -115,7 +115,7 @@ class SFScrapper {
                 dataObj = { url : _url, title : tit, startDuration : startDuration, endDuration :endDuration, category : _category }
                 console.log("_url:",_url, "tit:", tit, "startDuration:", startDuration, "endDuration", endDuration)
                 UI.ins.handleInputValueReset();
-                break;
+            break;
         }
 
         if(/youtube/g.test(_url)){
@@ -133,6 +133,8 @@ class SFScrapper {
     }
 
 }
+
+
 
 class UI extends Singleton{
 
@@ -169,17 +171,13 @@ class UI extends Singleton{
         this.$endMinute = this.$youtubeMenu.find(".endTime .minute");
         this.$endSecond = this.$youtubeMenu.find(".endTime .second");
 
-        this.$gifUploadList = this.$body.find(".gifUploadList");
-        this.$btnUpload = this.$body.find(".btnUpload");
+        this.$log =  this.$body.find(".log");
     }
 
     addEvents()
     {
         this.$btnLink.on("click", this.handleNavCtrlClick.bind(this) );
         this.$postbtn.on("click", this.handlePostBtnClick );
-
-        if(this.$gifUploadList.length > 0) this.setYoutubeGifList();
-        this.$btnUpload.on("click", this.handleUploadClick.bind(this));
     }
 
     addModule()
@@ -225,42 +223,17 @@ class UI extends Singleton{
         this.$endSecond.val("");
     }
 
-    setYoutubeGifList()
+    setLog()
     {
-        $.get( "./postDays.json", function( data ) {
-            var dataParse = JSON.parse(data);
-            console.log("JSON DATA : ", dataParse);
-            let list = "";
-            list += "<ul>";
-            for(var i = 0; i < dataParse.length; i++){
-                list += "<li>";
-                list += "<input id='gifList"+i+"' data-uploadKey="+i+" type='checkbox' class='gifListCheck' />";
-                list += "<label for='gifList"+i+"'>";
-                list += "<span class='category'>" + dataParse[i].category + "</span>";
-                list += "<span class='tit'>" + dataParse[i].title + "</span>";
-                list += "<span class='fileName'>" + dataParse[i].fileName + "</span>";
-                list += "</label>";
-                list += "</li>";
-            }
-            list += "</ul>";
-            UI.ins.$gifUploadList.append( list );
+        ipcRenderer.on('upload-post', (e, arg) => {
+            console.log(e, arg);
         });
-    }
-
-    handleUploadClick()
-    {
-        let uploadArr = [];
-        let $gifListCheck = this.$body.find(".gifListCheck");
-        $gifListCheck.each(function(){
-            if($(this).prop("checked")){
-                uploadArr.push(parseInt($(this).attr("data-uploadKey")));
-            }
-        });
-        ipcRenderer.send("upload-click", uploadArr);
     }
 }
 
 $(function(){
     UI.ins.startup();
+
+    UI.ins.setLog();
 });
 

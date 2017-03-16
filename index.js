@@ -7,21 +7,23 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const electronLocalshortcut = require('electron-localshortcut');
 
+
 require('electron-debug')({showDevTools: true});
 let mainWindow;
 loadMainProcess();
-function createWindow() {
+function createWindow () {
     mainWindow = new BrowserWindow({
-        width: 1900,
-        height: 1060
+        width : 1900,
+        height : 1060,
     });
 
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'index.html'),
         protocol: 'file:',
         slashes: true,
-        contextIsolation: true
+        contextIsolation : true
     }));
+
 
 
     // Open the DevTools.
@@ -31,47 +33,33 @@ function createWindow() {
     });
 
     electronLocalshortcut.register(mainWindow, 'Ctrl+1', () => {
-        mainWindow.webContents.executeJavaScript(`
+        mainWindow.webContents.executeJavaScript( `
         UI.ins.$postbtn.eq(0).trigger("click");
         `)
     });
 
     electronLocalshortcut.register(mainWindow, 'Ctrl+2', () => {
-        mainWindow.webContents.executeJavaScript(`
+        mainWindow.webContents.executeJavaScript( `
             UI.ins.$postbtn.eq(1).trigger("click");
         `)
     });
 
     electronLocalshortcut.register(mainWindow, 'Ctrl+3', () => {
-        mainWindow.webContents.executeJavaScript(`
+        mainWindow.webContents.executeJavaScript( `
             UI.ins.$postbtn.eq(2).trigger("click");
         `)
     });
 
     electronLocalshortcut.register(mainWindow, 'Ctrl+4', () => {
-        mainWindow.webContents.executeJavaScript(`
+        mainWindow.webContents.executeJavaScript( `
             UI.ins.$postbtn.eq(3).trigger("click");
         `)
     });
 
     electronLocalshortcut.register(mainWindow, 'Ctrl+5', () => {
-        mainWindow.webContents.executeJavaScript(`
+        mainWindow.webContents.executeJavaScript( `
             UI.ins.$postbtn.eq(4).trigger("click");
         `)
-    });
-
-    electronLocalshortcut.register(mainWindow, 'Ctrl+6', () => {
-        let gifData = new BrowserWindow({
-            width: 800,
-            height: 800
-        });
-
-        gifData.loadURL(url.format({
-            pathname: path.join(__dirname, 'gifData.html'),
-            protocol: 'file:',
-            slashes: true,
-            contextIsolation: true
-        }));
     });
 
 
@@ -87,10 +75,10 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-    mainWindow === null && createWindow()
+    imainWindow === nul && createWindow()
 });
 
-function loadMainProcess() {
+function loadMainProcess () {
     var files = glob.sync(path.join(__dirname, "mainProcess/*.js"));
-    files.forEach(file => require(file));
+    files.forEach( file => require(file));
 }
