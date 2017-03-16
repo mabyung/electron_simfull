@@ -1,120 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Title</title>
-<link rel="stylesheet" type="text/css" href="./inc/css/common.css">
-<link rel="stylesheet" type="text/css" href="./inc/css/browser.css">
-<script type="text/javascript">
-    if (typeof module === 'object') {
-        window.module = module; 
-        module = undefined;
-    }
-</script>
-<script type="text/javascript" src="./inc/js/jquery-1.12.4.min.js"></script>
-<script type="text/javascript">
-    if (window.module) module = window.module;
-</script>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./inc/css/common.css">
+    <link rel="stylesheet" type="text/css" href="./inc/css/browser.css">
+    <script type="text/javascript">
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script type="text/javascript" src="./inc/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        if (window.module) module = window.module;
+    </script>
 </head>
 <body>
 <div id="wrap">
     <div id="contents">
-            <nav class="sideMenu">
-                <!-- SetContents -->
-                <div class="setContents">
-                    <p class="tit">타이틀</p>
-                    <div class="titWrap">
-                        <textarea type="text" placeholder="제목" class="imageTit" ></textarea>
-                    </div>
-                    
-                    <p class="tit">타이틀</p>
-                    <div class="addTxtWrap">
-                        <textarea placeholder="문구추가" class="addText"></textarea>
-                    </div>
-                </div>
-                <!-- //SetContents -->
-
-                <!-- Youtube Menu -->
-                <div class="youtubeMenu">
-                    <div class="timeWrap">
-                        <p>Start Time</p>
-                        <div class="startTime">
-                            <input type="text" placeholder="분" maxlength="2" class="minute" />
-                            <span class="bul">:</span>
-                            <input type="text" placeholder="초" maxlength="2" class="second" />
-                        </div>
-                        
-                        <p>End Time</p>
-                        <div class="endTime">
-                            <input type="text" placeholder="분" maxlength="2" class="minute" />
-                            <span class="bul">:</span>
-                            <input type="text" placeholder="초" maxlength="2" class="second" />
-                        </div>
-                    </div>
-                </div>
-                <!-- //Youtube Menu -->
-
-                <!-- btnWrap -->
-                <!--<div class="btnWrap">
-                    <button type="button" class="btnSubmit">확인</button>
-                </div>-->
-                <!-- //btnWrap -->
-
-                <button type="button" class="item humor">유머 (CTRL+1)</button>
-                <button type="button" class="item girls">걸그룹 (CTRL+2)</button>
-                <button type="button" class="item adult">으랏챠챠 (CTRL+3)</button>
-                <button type="button" class="item animal">동물 (CTRL+4)</button>
-                <button type="button" class="item tumblr">텀블러 (CTRL+5)</button>
-
-                <!-- Log Wrap -->
-                <div class="logWrap">
-                    <p class="tit">Log</p>
-                    <div class="log">
-
-                    </div>
-                </div>
-                <!-- //Log Wrap -->
-
-            </nav>
-
-            <div class="webViewWrap">
-                <div id="controls">
-                    <button id="back" title="이전페이지" disabled="true">&#9664;</button>
-                    <button id="forward" title="다음페이지" disabled="true">&#9654;</button>
-                    <button id="home" title="홈으로">&#8962;</button>
-                    <button id="reload" title="새로고침">&#10227;</button>
-                    <form id="location-form">
-                        <div id="center-column">
-                            <input id="location" type="text" value="http://nsbu.co.kr/" />
-                        </div>
-                        <input type="submit" value="Go" />
-                    </form>
-                    <button id="zoom" title="Change Zoom">&#128270;</button>
-                    <button id="find" title="Find in Page">&#128294;</button>
+        <nav class="sideMenu">
+            <!-- SetContents -->
+            <div class="setContents">
+                <p class="tit">타이틀</p>
+                <div class="titWrap">
+                    <textarea type="text" placeholder="제목" class="imageTit" ></textarea>
                 </div>
 
-                <div id="zoom-box">
-                    <form id="zoom-form">
-                        <input id="zoom-text" type="text" />
-                        <input type="submit" value="&#128270;" />
-                        <button id="zoom-in">&#10133;</button>
-                        <button id="zoom-out">&#10134;</button>
-                    </form>
+                <p class="tit">타이틀</p>
+                <div class="addTxtWrap">
+                    <textarea placeholder="문구추가" class="addText"></textarea>
                 </div>
-
-                <div id="find-box">
-                    <form id="find-form">
-                        <input id="find-text" type="text" />
-                        <div id="find-results"></div>
-                        <input type="submit" style="position:absolute; visibility:hidden" />
-                        <button id="match-case">aA</button>
-                        <button id="find-backward">&#60;</button>
-                        <button id="find-forward">&#62;</button>
-                    </form>
-                </div>
-                <webview id="view" src="http://nsbu.co.kr/"></webview>
-                <!-- nodeintegration="on" plugins="on" disablewebsecurity="on" webpreferences="allowRunningInsecureContent"  -->
             </div>
+            <!-- //SetContents -->
+
+            <!-- Youtube Menu -->
+            <div class="youtubeMenu">
+                <div class="timeWrap">
+                    <p>Start Time</p>
+                    <div class="startTime">
+                        <input type="text" placeholder="분" maxlength="2" class="minute" />
+                        <span class="bul">:</span>
+                        <input type="text" placeholder="초" maxlength="2" class="second" />
+                    </div>
+
+                    <p>End Time</p>
+                    <div class="endTime">
+                        <input type="text" placeholder="분" maxlength="2" class="minute" />
+                        <span class="bul">:</span>
+                        <input type="text" placeholder="초" maxlength="2" class="second" />
+                    </div>
+                </div>
+            </div>
+            <!-- //Youtube Menu -->
+
+            <!-- btnWrap -->
+            <!--<div class="btnWrap">
+                <button type="button" class="btnSubmit">확인</button>
+            </div>-->
+            <!-- //btnWrap -->
+
+            <button type="button" class="item humor">유머 (CTRL+1)</button>
+            <button type="button" class="item girls">걸그룹 (CTRL+2)</button>
+            <button type="button" class="item adult">으랏챠챠 (CTRL+3)</button>
+            <button type="button" class="item animal">동물 (CTRL+4)</button>
+            <button type="button" class="item tumblr">텀블러 (CTRL+5)</button>
+            <button type="button" class="">유투브 업로드 (CTRL+6)</button>
+
+            <!-- Log Wrap -->
+            <div class="logWrap">
+                <p class="tit">Log</p>
+                <div class="log">
+
+                </div>
+            </div>
+            <!-- //Log Wrap -->
+
+        </nav>
+
+        <div class="webViewWrap">
+            <div id="controls">
+                <button id="back" title="이전페이지" disabled="true">&#9664;</button>
+                <button id="forward" title="다음페이지" disabled="true">&#9654;</button>
+                <button id="home" title="홈으로">&#8962;</button>
+                <button id="reload" title="새로고침">&#10227;</button>
+                <form id="location-form">
+                    <div id="center-column">
+                        <input id="location" type="text" value="http://nsbu.co.kr/" />
+                    </div>
+                    <input type="submit" value="Go" />
+                </form>
+                <button id="zoom" title="Change Zoom">&#128270;</button>
+                <button id="find" title="Find in Page">&#128294;</button>
+            </div>
+
+            <div id="zoom-box">
+                <form id="zoom-form">
+                    <input id="zoom-text" type="text" />
+                    <input type="submit" value="&#128270;" />
+                    <button id="zoom-in">&#10133;</button>
+                    <button id="zoom-out">&#10134;</button>
+                </form>
+            </div>
+
+            <div id="find-box">
+                <form id="find-form">
+                    <input id="find-text" type="text" />
+                    <div id="find-results"></div>
+                    <input type="submit" style="position:absolute; visibility:hidden" />
+                    <button id="match-case">aA</button>
+                    <button id="find-backward">&#60;</button>
+                    <button id="find-forward">&#62;</button>
+                </form>
+            </div>
+            <webview id="view" src="http://nsbu.co.kr/"></webview>
+            <!-- nodeintegration="on" plugins="on" disablewebsecurity="on" webpreferences="allowRunningInsecureContent"  -->
+        </div>
     </div>
 </div>
 <div class="scrapingWrap"></div>

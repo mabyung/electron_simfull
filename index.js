@@ -14,7 +14,7 @@ loadMainProcess();
 function createWindow () {
     mainWindow = new BrowserWindow({
         width : 1900,
-        height : 1060,
+        height : 1060
     });
 
     mainWindow.loadURL(url.format({
@@ -62,6 +62,20 @@ function createWindow () {
         `)
     });
 
+    electronLocalshortcut.register(mainWindow, 'Ctrl+6', () => {
+        let gifData = new BrowserWindow({
+            width : 800,
+            height : 800
+        });
+
+        gifData.loadURL(url.format({
+            pathname: path.join(__dirname, 'gifData.html'),
+            protocol: 'file:',
+            slashes: true,
+            contextIsolation : true
+        }));
+    });
+
 
 }
 
@@ -75,7 +89,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-    imainWindow === nul && createWindow()
+    mainWindow === null && createWindow()
 });
 
 function loadMainProcess () {
