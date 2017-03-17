@@ -19,3 +19,5 @@ ipc.on("yt-data", (e, arg) =>{
     ytHelper.convertVideoToGif( arg, handleDownloadComplete );
 });
 
+// downloadManager.postTumblr();
+

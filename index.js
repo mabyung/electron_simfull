@@ -25,6 +25,17 @@ function createWindow () {
     }));
 
 
+    let resizer = require('limby-resize')({
+        imagemagick: require('imagemagick'),
+    });
+
+    resizer.resize(__dirname+'/download/1489714451107.gif', {
+        width: 300,
+        height: 500,
+        coalesce: true, // animated gif support ( if your image magick supports )
+        destination: __dirname+'/download/resize_1489714451107.gif',
+    });
+
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools();

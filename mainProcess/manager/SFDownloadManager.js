@@ -56,17 +56,19 @@ class SFDownloadManager
 
     postTumblr()
     {
-        let _results = [];
-        this.dataList.forEach((val, idx)=>{
-            _results.push( fs.readFileSync(val) );
-        });
+        // tumblr.post('/post', {type: 'video', caption : "심풀", tags : "심풀!!", data : [fs.readFileSync("download/suzy.webm")] }, function(err, json){
+        //     console.log("postTumblr : ", json );
+        // });
+        // let stream = fs.readFile('./download/vs.mp4', (data,err)=>{
+        //     err && console.log("postTumblr err : ", err );
+        //     console.log( "postTumblr readFile : ", data );
+        // });
 
-        const _source = [
-            "http://simfull.dothome.co.kr/images/humor/1487737882770.jpg",
-            "http://simfull.dothome.co.kr/images/humor/1487658002467.jpg"
-        ]
-        tumblr.post('/post', {type: 'photo', caption : "심풀", tags : "심풀!!", source : _source }, function(err, json){
-            console.log(json);
+        // let mp4 = require('mp4-stream')
+        // var decoder = mp4.decode();
+        // fs.createReadStream('./download/vs.mp4').pipe(decoder);
+        tumblr.post("/post", { type : "video", embed : "https://www.youtube.com/watch?v=MfYPKZl7W1w" }, (err, json )=>{
+            console.log("postTumblr : ", json );
         });
 
     }
