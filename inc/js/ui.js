@@ -6,8 +6,7 @@ var SITE = [
     { name : "이슈인", url : "http://www.issuein.com/" },
     { name : "오늘의유머", url : "http://www.todayhumor.co.kr/" },
     { name : "디젤매니아", url : "http://cafe.naver.com/dieselmania/" },
-    { name : "유투브", url : "http://youtube.com"},
-    { name : "텀블러인증", url : "https://www.tumblr.com/oauth/apps" }
+    { name : "유투브", url : "http://youtube.com"}
 ];
 
 const singleton = "slngleton";
@@ -168,18 +167,12 @@ class UI extends Singleton{
         this.$startSecond = this.$youtubeMenu.find(".startTime .second");
         this.$endMinute = this.$youtubeMenu.find(".endTime .minute");
         this.$endSecond = this.$youtubeMenu.find(".endTime .second");
-
-        this.$gifUploadList = this.$body.find(".gifUploadList");
-        this.$btnUpload = this.$body.find(".btnUpload");
     }
 
     addEvents()
     {
         this.$btnLink.on("click", this.handleNavCtrlClick.bind(this) );
         this.$postbtn.on("click", this.handlePostBtnClick );
-
-        if(this.$gifUploadList.length > 0) this.setYoutubeGifList();
-        this.$btnUpload.on("click", this.handleUploadClick.bind(this));
     }
 
     addModule()
@@ -223,40 +216,6 @@ class UI extends Singleton{
         this.$startSecond.val("");
         this.$endMinute.val("");
         this.$endSecond.val("");
-    }
-
-    setYoutubeGifList()
-    {
-        $.get( "./postDays.json", function( data ) {
-            var dataParse = JSON.parse(data);
-            console.log("JSON DATA : ", dataParse);
-            let list = "";
-            list += "<ul>";
-            for(var i = 0; i < dataParse.length; i++){
-                list += "<li>";
-                list += "<input id='gifList"+i+"' data-uploadKey="+i+" type='checkbox' class='gifListCheck' />";
-                list += "<label for='gifList"+i+"'>";
-                list += "<span class='category'>" + dataParse[i].category + "</span>";
-                list += "<span class='tit'>" + dataParse[i].title + "</span>";
-                list += "<span class='fileName'>" + dataParse[i].fileName + "</span>";
-                list += "</label>";
-                list += "</li>";
-            }
-            list += "</ul>";
-            UI.ins.$gifUploadList.append( list );
-        });
-    }
-
-    handleUploadClick()
-    {
-        let uploadArr = [];
-        let $gifListCheck = this.$body.find(".gifListCheck");
-        $gifListCheck.each(function(){
-            if($(this).prop("checked")){
-                uploadArr.push(parseInt($(this).attr("data-uploadKey")));
-            }
-        });
-        ipcRenderer.send("upload-click", uploadArr);
     }
 }
 
