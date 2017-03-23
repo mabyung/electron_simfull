@@ -55,28 +55,6 @@ function createWindow () {
             UI.ins.$postbtn.eq(3).trigger("click");
         `)
     });
-
-    electronLocalshortcut.register(mainWindow, 'Ctrl+5', () => {
-        mainWindow.webContents.executeJavaScript( `
-            UI.ins.$postbtn.eq(4).trigger("click");
-        `)
-    });
-
-    electronLocalshortcut.register(mainWindow, 'Ctrl+6', () => {
-        let gifData = new BrowserWindow({
-            width : 800,
-            height : 800
-        });
-
-        gifData.loadURL(url.format({
-            pathname: path.join(__dirname, 'gifData.html'),
-            protocol: 'file:',
-            slashes: true,
-            contextIsolation : true
-        }));
-    });
-
-
 }
 
 app.on('ready', createWindow);
