@@ -22,7 +22,7 @@ class TumblrManager
                             document.body.appendChild(textarea);
                             textarea.select();
                             document.execCommand("copy");
-                            document.body.removeChild(textarea);
+                        document.body.removeChild(textarea);
                     })();
                     document.querySelector(".media-dropzone-cropper .editor-plaintext").click();
                     setTimeout( ()=> document.execCommand('Paste') , 1000 );
